@@ -65,6 +65,10 @@
             margin: 10px auto;
             display: inline-block;
         }
+        .count {
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -92,6 +96,7 @@
         </div>
 
         <div class="results" id="results"></div>
+        <div class="count" id="cat-count"></div>
     </div>
     
     <script>
@@ -107,7 +112,10 @@
         }
 
         function displayResults(content) {
-            document.getElementById('results').innerHTML = content.length ? content.join('') : '<p>No data available</p>';
+            const resultsElement = document.getElementById('results');
+            const countElement = document.getElementById('cat-count');
+            resultsElement.innerHTML = content.length ? content.join('') : '<p>No data available</p>';
+            countElement.innerHTML = content.length ? `Total Cats Found: ${content.length}` : '';
         }
 
         async function handleAllNames() {
@@ -166,3 +174,4 @@
     </script>
 </body>
 </html>
+
